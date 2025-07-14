@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://btan2pn4d7uoi"
+path.s3tc="res://.godot/imported/low-poly_lamp_post_1.png-ee209568412e4b1b1ee645bf96b25e88.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "c01ceca08c1046785902b3afe16572d9"
+}
+
+[deps]
+
+source_file="res://assets/low-poly_lamp_post_1.png"
+dest_files=["res://.godot/imported/low-poly_lamp_post_1.png-ee209568412e4b1b1ee645bf96b25e88.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://low-poly_lamp_post_3.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
