@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=4 uid="uid://beq43jjayme"]
+[gd_scene load_steps=54 format=4 uid="uid://beq43jjayme"]
 
 [ext_resource type="PackedScene" uid="uid://co0p0lyug720w" path="res://player.tscn" id="1_5g7v7"]
 [ext_resource type="Shader" uid="uid://bsn7uoe0mm21a" path="res://sky.gdshader" id="2_i1g04"]
+[ext_resource type="Shader" uid="uid://cwg73wys54uog" path="res://fog.gdshader" id="3_hu8bq"]
 [ext_resource type="Texture2D" uid="uid://c35s1tn1drfgu" path="res://assets/PavingStones115A_1K-JPG_Color.jpg" id="3_y4qkf"]
 [ext_resource type="Texture2D" uid="uid://cbp1nn7a2qe83" path="res://assets/PavingStones115A_1K-JPG_AmbientOcclusion.jpg" id="4_oncxo"]
 [ext_resource type="Texture2D" uid="uid://bdyu248xupwe8" path="res://assets/PavingStones115A_1K-JPG_Displacement.jpg" id="5_hu8bq"]
@@ -58,6 +59,21 @@ auto_exposure_speed = 6.84
 dof_blur_near_enabled = true
 dof_blur_near_distance = 1.0
 dof_blur_amount = 0.2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l07pr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l07pr"]
+shader = ExtResource("3_hu8bq")
+shader_parameter/noise_scale = 1.0
+shader_parameter/movement_dir = Vector3(0.13, 0.13, 0.22)
+shader_parameter/density_mult = 0.3
+shader_parameter/albedoColor = Color(0, 0, 0, 1)
+shader_parameter/emissionColor = Color(0, 0, 0, 1)
+shader_parameter/gradient = SubResource("GradientTexture1D_l07pr")
+shader_parameter/fade_out_height = 2.0
+shader_parameter/fade_out_distance = 1.5
+shader_parameter/fade_out_horiz = 5.0
+shader_parameter/colorRand = 0.02
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0ayo"]
 albedo_color = Color(0.43, 0.43, 0.43, 1)
@@ -321,6 +337,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.084
 environment = SubResource("Environment_g2h84")
 camera_attributes = SubResource("CameraAttributesPractical_k3n1d")
 
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355201, -0.367186, -0.370793)
+size = Vector3(15.3514, 1.7366, 18.8855)
+shape = 2
+material = SubResource("ShaderMaterial_l07pr")
+
 [node name="Room1" type="Node3D" parent="."]
 
 [node name="Border" type="Node3D" parent="Room1"]
@@ -382,12 +404,12 @@ spot_angle = 30.0
 [node name="OmniSpotLight3D" type="SpotLight3D" parent="Room1/Lamp"]
 transform = Transform3D(0.565155, 0.82422, -0.0355219, 0.0521697, 0.00726585, 0.998612, 0.823334, -0.566224, -0.0388929, -0.706726, 2.02703, -0.0129459)
 light_color = Color(0.854759, 0.735001, 0.999387, 1)
-light_energy = 3.5
+light_energy = 4.0
 light_size = 0.1
 light_specular = 3.0
 shadow_enabled = true
 shadow_caster_mask = 4294967293
-spot_range = 33.352
+spot_range = 35.0
 spot_angle = 72.0
 
 [node name="Lamp" type="MeshInstance3D" parent="Room1/Lamp"]
