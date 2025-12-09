@@ -49,7 +49,7 @@ func _update_lens_flares_location() -> void:
 	if is_behind:
 		return
 	
-	var unproject_position: Vector2 = camera.unproject_position(light_source.global_position) / Vector2(get_viewport().size)
+	var unproject_position: Vector2 = camera.unproject_position(light_source.global_position) / Vector2(get_viewport().get_visible_rect().size)
 	shader_material.set_shader_parameter("sun_position", unproject_position)
 
 
